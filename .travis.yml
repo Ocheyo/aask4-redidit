@@ -1,0 +1,21 @@
+notifications:
+  email: false
+
+language: node_js
+
+node_js: node
+  # add addition versions as needed
+
+services: postgreqsl
+
+# start DB here and create user/password for travis
+before_script:
+  - psql -c "CREATE DATABASE redidit;" -U postgres
+  - psql -c "CREATE USER redidit WITH PASSWORD 'redidit';" -U postgres
+  - psql -c "ALTER USER redidit WITH SUPERUSER;" -U postgres
+
+script:
+  - webpack
+  - npm run dev-server
+  - sleep 2
+  - npm run test
