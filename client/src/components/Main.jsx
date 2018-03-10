@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
-import Nav from './Nav.jsx';
-import Search from './Search.jsx';
-import ContentList from './ContentList.jsx';
-import SubscribeButton from './SubscribeButton';
-import Subscriptions from './Subscriptions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+import Nav from "./Nav.jsx";
+import Search from "./Search.jsx";
+import ContentList from "./ContentList.jsx";
+import SubscribeButton from "./SubscribeButton";
+import Subscriptions from "./Subscriptions";
+import Footer from "./Footer.jsx";
 
 class Main extends Component {
   render() {
@@ -25,7 +26,11 @@ class Main extends Component {
           <br />
           <br />
         </div>
-        <h3>{(this.props.active_subredidit && this.props.active_subredidit.name) || 'All'}</h3>
+        <h3>
+          {(this.props.active_subredidit &&
+            this.props.active_subredidit.name) ||
+            "All"}
+        </h3>
         <br />
         <br />
         <div className="sidebar">
@@ -43,7 +48,7 @@ class Main extends Component {
 function mapStateToProps(state) {
   return {
     active_user: state.active_user,
-    active_subredidit: state.active_subredidit,
+    active_subredidit: state.active_subredidit
   };
 }
 
