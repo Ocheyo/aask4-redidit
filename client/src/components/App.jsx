@@ -1,4 +1,6 @@
 import React from "react";
+import firebase from "../firebase";
+import axios from "axios";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { addname, loadAllSubredidit } from "../actions";
@@ -10,14 +12,12 @@ import Search from "./Search.jsx";
 import NavAndLogin from "./NavAndLogin";
 import Signup from "./SignUp.jsx";
 import UserProfile from "./Profile.jsx";
-import firebase from "../firebase";
-import axios from "axios";
+import Footer from "./Footer.jsx";
 
 class App extends React.Component {
   constructor() {
     super();
   }
-
 
   componentDidMount() {
     axios
@@ -44,6 +44,7 @@ class App extends React.Component {
             </Switch>
           </div>
         </BrowserRouter>
+        <Footer />
       </div>
     );
   }
